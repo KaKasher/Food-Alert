@@ -3,19 +3,21 @@ function initMap() {
 
     // opcje dla mapy
     var mapOptions = {
-        center: {lat: 52.000, lng: 19.000},
+        center: {lat: 52.250, lng: 19.100},
         mapTypeId: 'roadmap',
-        zoom: 10,
-        minZoom: 4,
+        zoom: 7,
+        minZoom: 7,
         panControl: false,
         fullscreenControl: false,
         mapTypeControl: false,
-        streetViewControl: false
+        streetViewControl: false,
+        restriction: {
+            latLngBounds: {north: 55.390343, south: 48.870495, west: 8.778344, east: 29.421655}
+        }
     };
 
     // tworzenie nowej mapy
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
 
     // tworzenie wyszukiwarki na pasku nawigacyjnym
     var navInput = document.getElementById('nav-search');
@@ -56,6 +58,7 @@ function initMap() {
     // dodaje znacznik podczas kliknięcia
     google.maps.event.addListener(map, 'click', function(event){
         addMarker({coords: event.latLng});
+        console.log(map.getBounds());
     });
 
     var markers = [
