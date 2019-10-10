@@ -3,26 +3,37 @@ function initMap() {
 
     // opcje dla mapy
     var mapOptions = {
-        center: {lat: 52.000, lng: 19.000},
+        center: {lat: 52.250, lng: 19.100},
         mapTypeId: 'roadmap',
-        zoom: 10,
-        minZoom: 4,
+        zoom: 7,
+        minZoom: 7,
         panControl: false,
         fullscreenControl: false,
         mapTypeControl: false,
-        streetViewControl: false
+        streetViewControl: false,
+        restriction: {
+            latLngBounds: {north: 55.390343, south: 48.870495, west: 8.778344, east: 29.421655}
+        }
     };
 
     // tworzenie nowej mapy
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
+    // opcje wyszukiwarki
+    var autocompleteOptions = {componentRestrictions: {country: 'pl'}};
 
     // tworzenie wyszukiwarki na pasku nawigacyjnym
     var navInput = document.getElementById('nav-search');
-    var navAutocompleteOptions = {componentRestrictions: {country: 'pl'}};
-    var navAutocomplete = new google.maps.places.Autocomplete(navInput, navAutocompleteOptions);
-
+    var navAutocomplete = new google.maps.places.Autocomplete(navInput, autocompleteOptions);
     enableEnterKey(navInput);
+
+    // tworzenie wyszukiwarki pod guzikiem 'dodaj'
+    var popupInput = document.getElementById('popup-search');
+    var popupAutocomplete = new google.maps.places.Autocomplete(popupInput, autocompleteOptions);
+    enableEnterKey(popupInput);
+
+    document.getElementById('add-marker-btn').addEventListener("click", addMarkerFromPopup, false);
+
 
     // sprawia że propozycje wyszukiwania odpowiadają aktualnemu widokowi na mapie
     navAutocomplete.bindTo('bounds', map);
@@ -83,6 +94,8 @@ function initMap() {
     // document.getElementById('info-btn').addEventListener("click", addMarker(), false);
     // });
 
+    
+
     function addMarker(props) {
 
         var marker = new google.maps.Marker({
@@ -112,7 +125,32 @@ function initMap() {
 
     }
 
+    function addMarkerFromPopup() {
+        var place = popupAutocomplete.getPlace();
+
+        if (!place.geometry) {
+            window.alert("Nic nie znaleziono dla wejścia: '" + place.name + "'");
+            return;
+        }
+
+        var item = document.getElementById('popup-item').value;
+        var comment = document.getElementById('popup-comment').value;
+
+        var props = {
+            coords: place.geometry.location,
+            content: "<h3>Do odebrania: " + item + "</h3><h6>" + comment + "</h6>"
+        }
+
+        addMarker(props);
+
+        map.setZoom(17);
+        map.setCenter(place.geometry.location);
+        
+    }
+
 }
+
+
 
 // podczas wcisnięcia klawisza enter na pasku wyszukiwania, wybierze pierwszy wynik
 function enableEnterKey(input) {
