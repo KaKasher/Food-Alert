@@ -35,7 +35,7 @@ header {
     background-color: rgb(0, 0, 0, 0.2)
 }
 
-.box input[type="text"], .box input[type="password"] {
+.box input[type="text"], .box input[type="password"], .box input[type="email"] {
     border: 0;
     background: rgba(0, 0, 0, 0.4);
     display: block;
@@ -48,7 +48,7 @@ header {
     border-radius: 24px;
     transition: 0.25s;
 }
-.box input[type="text"]:focus, .box input[type="password"]:focus {
+.box input[type="text"]:focus, .box input[type="password"]:focus, .box input[type="email"]:focus {
     width: 80%;
 }
 
