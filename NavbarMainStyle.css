@@ -133,3 +133,53 @@
   border-radius: 10px;
   border:none;
 }
+/*----------------------------------------------------------------------------Searchbar do mapy--------------------------------------------------------------------------*/
+
+
+#nav-search {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  text-align: center;
+  width: 100%;
+  padding: 0 50px;
+  margin-left: 5%;
+  color: white;
+  margin-top: 3%;
+ 
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  #nav-search {
+    padding: 10px 0;
+    margin-left: 0%;
+    
+  }
+  
+}
+
+.pac-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  
+  
+}
+
+.pac-matched {
+  color: white;
+}
+
+.pac-item {
+  border: none;
+}
+.pac-item-query {
+  color: white;
+}
+
+.pac-item:hover {
+  background-color: rgb(206, 130, 17);
+}
+
+.pac-icon {
+  color: red;
+}
