@@ -29,7 +29,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <form class="box" action="../restormessage.php" method="POST">
+                            <form class="box" action="../restoremessage.php" method="POST">
                             
                                 <input type="email" name="email1" placeholder="E-Mail">
                                 <input type="submit" name="" value="Wyślij">
