@@ -1,0 +1,135 @@
+
+ body {
+   
+   margin: 0px;
+   padding: 0px;
+  
+ }
+
+ .navbar {
+    background: rgba(0, 0, 0, 0.6);
+    position: relative;
+    z-index: 99 !important;
+    
+ }
+
+ .navbar-nav li {
+    display: inline-block;
+ }
+
+ .navbar-brand {
+  font-size: 30px
+ }
+
+ .nav-item a {
+   font-size: 25px;
+ }
+
+ .form-inline {
+   padding: 2px;
+ }
+ 
+
+/*----------------------------------------------------------------------------Przycisk do dodawania--------------------------------------------------------------------------*/
+
+ .btn-default {
+  margin-top: 1%;
+  margin-right: 1%;
+  float: right;
+  position: relative;
+  z-index: 99 !important;
+
+  color: white;
+  padding: 5 35;
+  font-size: 20px;
+  background: rgb(192, 121, 14);
+  border: 0;
+}
+
+.btn-default:hover {
+  background: rgb(206, 130, 17);
+  color: white;
+}
+
+.btn-default:active
+{
+  color: white;
+  border: 0;
+  background-color: rgb(180, 114, 16);
+}
+
+.btn-danger {
+  border: 0;
+  padding: 5 25;
+  font-size: 20px;
+  margin-top: 1%;
+  margin-right: 1%;
+  
+}
+/*----------------------------------------------------------------------------Edycja samego okienka--------------------------------------------------------------------------*/
+
+.modal {
+  position:fixed; 
+  left:0;
+  right:0;
+  top:50%;
+  bottom:0;
+  margin:auto;
+}
+
+
+
+
+.modal-content {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 24px;
+  
+}
+
+.close {
+  color: white;
+}
+
+.close:hover {
+  color: white;
+}
+
+.modal-header {
+  border-bottom-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-body {
+  text-align: center;
+  
+}
+
+.modal-footer {
+  border-top-color: rgba(0, 0, 0, 0.6);
+}
+
+.adding {
+  width: 90%;
+  height: 40px;
+  margin-top: 2%;
+  text-align: center;
+  border-radius: 10px;
+  border:none;
+}
+
+.comment {
+  width: 90%;
+  height: 100px;
+  text-align: center;
+  margin-top: 2%;
+  border-radius: 10px;
+  border:none;
+}
+
+.popup-form-control {
+  width: 90%;
+  height: 40px;
+  text-align: center;
+  border-radius: 10px;
+  border:none;
+}
