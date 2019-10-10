@@ -78,9 +78,6 @@
         </div>
 
         <script src="mapa/map.js"></script>
-        
-
-        
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFOAkwJSGb774hBD0EWai5BCKcQvdqXAU&libraries=places&language=pl&region=PL&callback=initMap"
         async defer></script>
 
