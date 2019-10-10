@@ -12,7 +12,7 @@ function initMap() {
         mapTypeControl: false,
         streetViewControl: false,
         restriction: {
-            latLngBounds: {north: 55.390343, south: 48.870495, west: 8.778344, east: 29.421655}
+            latLngBounds: {north: 57.000, south: 45.000, west: 5.500, east: 36.000}
         }
     };
 
@@ -55,8 +55,8 @@ function initMap() {
         if (place.geometry.viewport) {
             map.fitBounds(place.geometry.viewport);
         } else {
-            map.setCenter(place.geometry.location);
             map.setZoom(17);
+            map.setCenter(place.geometry.location);
         }
 
         searchMarker.setPosition(place.geometry.location);
@@ -84,17 +84,6 @@ function initMap() {
         addMarker(markers[i]);
     }
 
-    // var infoWindowAddMarker = new google.maps.InfoWindow({
-    //     content: "<button id='info-btn' type='button' class='btn btn-light'>Light</button>"
-    // });
-
-    // map.addListener("rightclick", function(event) {
-    // infoWindowAddMarker.setPosition(event.latLng);
-    // infoWindowAddMarker.open(map);
-    // document.getElementById('info-btn').addEventListener("click", addMarker(), false);
-    // });
-
-    
 
     function addMarker(props) {
 
