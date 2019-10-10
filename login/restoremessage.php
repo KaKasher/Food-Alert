@@ -28,16 +28,16 @@
     $mail->SMTPAuth = true;
     $mail->SMTPSecure = 'tls';
     $mail->isHTML(true);
-    $mail->Username = 'dawidfirm1@gmail.com';
-    $mail->Password = 'DAWIDsroka1';
-    $mail->From='dawidfirm1@gmail.com';
+    $mail->Username = '';
+    $mail->Password = '';
+    $mail->From='';
     $mail->FromName='FoodAlert';
     $mail->addAddress($_POST['email1']);
     $mail->Subject = 'E-Mail restore';
     $mail->Body = "
         Oto link który resetuje twoje hasło :<br></br>
         
-        http://localhost/Food-Alert/login/restor/passwords.php?email=".$email."&token=".$token."
+        http://83.68.95.60/login/restor/passwords.php?email=".$email."&token=".$token."
         ";
     if(!$mail->Send()) {
 echo 'Some error... / Jakiś błąd...';
