@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_GET['email']) || !isset($_GET['token'])){
-    header('Location: ../index.php');
+    header('Location: index.php');
     exit;
     }else{
         require_once "connect.php"; 
@@ -13,7 +13,7 @@
         $sql = $polaczenie->query($query);
         $sql = $sql->num_rows;
         if($sql > 0){
-            $polaczenie->query("UPDATE logowanie SET mailconfimed=1");
+            $polaczenie->query("UPDATE logowanie SET mailconfimed=1 WHERE email='$email'");
             header('Location: index.php');
             exit;
 
