@@ -37,7 +37,7 @@
     $mail->Body = "
         Oto link który resetuje twoje hasło :<br></br>
         
-        http://83.68.95.60/login/restor/passwords.php?email=".$email."&token=".$token."
+        <a href='http://83.68.95.60/login/restor/passwords.php?email=".$email."&token=".$token."'>Kliknij tutaj </a>
         ";
     if(!$mail->Send()) {
 echo 'Some error... / Jakiś błąd...';
