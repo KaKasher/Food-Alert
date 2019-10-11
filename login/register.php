@@ -60,7 +60,6 @@
                                 echo $_SESSION['zleznaki'];
                                 unset($_SESSION['zleznaki']);}
                                 ?>
-                                <a href="restor/email.php">zrestartuj swoje haslo</a>
                             </form>    
                                                 
                         </div>
