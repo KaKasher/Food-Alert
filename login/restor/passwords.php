@@ -8,6 +8,7 @@
         require_once "../connect.php"; 
         $polaczenie = @new mysqli($host,$db_user,$db_password,$db_name);
         $_SESSION['email2'] = mysqli_real_escape_string($polaczenie, $_GET['email']);
+        $_SESSION['token2'] = mysqli_real_escape_string($polaczenie, $_GET['token']);
     }
     ?>
 <!DOCTYPE HTML>
