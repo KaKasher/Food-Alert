@@ -45,6 +45,7 @@
                                 unset($_SESSION['zleznakilog']);}  
 
                                 ?>
+                                <a href="restor/email.php"><br>zrestartuj swoje haslo</a>
                             </form>                        
                         </div>
                     </div>      
