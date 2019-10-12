@@ -141,7 +141,7 @@
   border: none;
   text-align: center;
   width: 100%;
-  padding: 0 50px;
+  padding: 0 40px;
   margin-left: 5%;
   color: white;
   margin-top: 3%;
@@ -150,7 +150,7 @@
 
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   #nav-search {
     padding: 10px 0;
     margin-left: 0%;
@@ -160,7 +160,8 @@
 }
 
 .pac-container {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(29, 29, 29);
+  z-index: 1051 !important;
   
   
 }
