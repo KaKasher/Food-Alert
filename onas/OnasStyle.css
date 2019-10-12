@@ -1,7 +1,8 @@
 .glowny {
     background-color: rgba(0,0,0,0.4);
-    margin: 20px 15px 0 15px;
+    margin: 20px  0 0;
     height: 89%;
+    
 }
 
 .kontener {
@@ -12,10 +13,13 @@
     font-size: 22px;
     text-align: center;
     padding: 10 10 0 10;
+   
+    
 }
 
 body {
     background-image: url("../Images/Screenshot_2.png");
+    
 }
 
 h1 {
