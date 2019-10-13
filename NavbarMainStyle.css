@@ -12,6 +12,7 @@
     z-index: 99 !important;
     
  }
+ 
 
  .navbar-nav li {
     display: inline-block;
@@ -144,7 +145,7 @@
   padding: 0 40px;
   margin-left: 5%;
   color: white;
-  margin-top: 3%;
+  margin-top: 3.5%;
  
 }
 
