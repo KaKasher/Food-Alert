@@ -48,8 +48,9 @@
             <div class="glowny">
                 <h1>O Nas</h1>
                     <div class="kontener">
-                           Wszystko zaczeło się od pewnego dnia kiedy to dwóch założycieli wracając ze szkoły spotkało menela Mariana poprosił on o pieniądze na alkohol jednak my wiedzieliśmy że tak naprawdę chciał je wydać na jedzenie, niestety nie mieliśmy przy sobie ani grosza. Fakt ten zezłościł pana Mariana do tego stopnia że groził powiadomieniem policji że nie posiadamy pieniędzy. Zaszokowani zaistniałą sytuacją wróciliśmy do domu i zaczęliśmy myśleć nad rozwiązaniem aby już nigdy nie spotkała nas taka sytuacja. Tak o to powstało Food Alert dzięki któremu nawet Pan Marian już nigdy nie będzie głodny.
-                          
+                        <div class="tekst">
+                            Wszystko zaczeło się od pewnego dnia kiedy to dwóch założycieli wracając ze szkoły spotkało menela Mariana poprosił on o pieniądze na alkohol jednak my wiedzieliśmy że tak naprawdę chciał je wydać na jedzenie, niestety nie mieliśmy przy sobie ani grosza. Fakt ten zezłościł pana Mariana do tego stopnia że groził powiadomieniem policji że nie posiadamy pieniędzy. Zaszokowani zaistniałą sytuacją wróciliśmy do domu i zaczęliśmy myśleć nad rozwiązaniem aby już nigdy nie spotkała nas taka sytuacja. Tak o to powstało Food Alert dzięki któremu nawet Pan Marian już nigdy nie będzie głodny.
+                        </div>  
                     </div>
             </div>   
     

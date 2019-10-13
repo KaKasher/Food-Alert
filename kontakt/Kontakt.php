@@ -65,7 +65,7 @@
                         </div> 
                         <div class="col-md-4"><i class="fas fa-user fa-6x"></i>
                         <p>
-                          Web Designer/Junior front-end developer<br>
+                          Web Designer/Front-end developer<br>
                           Jakub Wojdak<br>
                           E-mail: <br>
                           jakub.wojdak11@gmail.com
@@ -75,7 +75,7 @@
                 
                 
                       <div class="row">
-                          <div class="col-md-6 "><i class="fas fa-user fa-6x"></i>
+                          <div class="col-md-4 offset-md-2"><i class="fas fa-user fa-6x"></i>
                             <p>
                             Technology Consultant<br>
                             Eliasz Nalepka<br>
@@ -84,7 +84,7 @@
                           </p>
                           </div> 
                         
-                          <div class="col-md-6"><i class="fas fa-user fa-6x"></i>
+                          <div class="col-md-4"><i class="fas fa-user fa-6x"></i>
                             <p>
                             Back-end developer<br>
                             Dawid Sroka<br>
@@ -92,8 +92,7 @@
                             dawidfirm1@gmail.com
                           </p>
                           </div> 
-                        </div>
-                
+                      </div>
                     </div>
                   </div>
     </main>
