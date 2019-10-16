@@ -13,6 +13,8 @@ p {
 
 i {
 	margin-bottom: 10px;
+	color: rgb(175, 175, 175);
+	
 }
 
 h1 {
@@ -28,8 +30,17 @@ h1 {
 	
 }
 
+.glowny {
+	background-color: rgba(0, 0, 0, 0.4);
+	
+}
+
 body {
-	background-image: url("../Images/Screenshot_2.png");
+	background-image: url("../1.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 
