@@ -9,10 +9,10 @@
  .navbar {
     background: rgba(0, 0, 0, 0.6);
     position: relative;
-    z-index: 99 !important;
-    
+    z-index: 99 !important; 
  }
  
+
 
  .navbar-nav li {
     display: inline-block;
