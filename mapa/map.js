@@ -1,3 +1,7 @@
+var script = document.createElement('script');
+script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
+script.type = 'text/javascript';
+document.getElementsByTagName('head')[0].appendChild(script);
 
 function initMap() {
 
@@ -34,7 +38,6 @@ function initMap() {
 
     document.getElementById('add-marker-btn').addEventListener("click", addMarkerFromPopup, false);
 
-
     // sprawia że propozycje wyszukiwania odpowiadają aktualnemu widokowi na mapie
     navAutocomplete.bindTo('bounds', map);
 
@@ -64,25 +67,33 @@ function initMap() {
     });
  
 
-    // dodaje znacznik podczas kliknięcia
-    google.maps.event.addListener(map, 'click', function(event){
-        addMarker({coords: event.latLng});
-    });
+    // pobranie znaczników z bazy
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", "mapa/googlemap.php", true);
+    ajax.send();
 
-    var markers = [
-    {coords: {lat: 52.000, lng: 19.000}},
-    {coords: {lat: 52.500, lng: 19.500}},
-    {
-        coords: {lat: 52.050, lng: 19.100},
-        iconImg: 'http://maps.google.com/mapfiles/kml/shapes/dining.png',
-        content: "<img src='https://trello-attachments.s3.amazonaws.com/5d989f3d4abf6e1e4ebad3ff/178x151/7a6711ebb8216ca83c6df90591571bb1/Bez_tytu%C5%82u.png'/>"
-    }
-    ];
+    ajax.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var data = JSON.parse(this.responseText);
 
-    // dodaje wszystkie znaczniki
-    for(var i = 0; i < markers.length; i++) {
-        addMarker(markers[i]);
-    }
+            var markers = Array();
+
+            for(var i = 0; i < data.length; i++) {
+                var marker = {
+                    coords: {lat: parseFloat(data[i].lat), lng: parseFloat(data[i].lng)},
+                    item: data[i].product,
+                    comment: data[i].comment
+                }
+                markers.push(marker);
+            }
+    
+            for(var i = 0; i < markers.length; i++) {
+                addMarker(markers[i]);
+            }
+        }
+
+
+    };
 
 
     function addMarker(props) {
@@ -96,14 +107,19 @@ function initMap() {
             marker.setIcon(props.iconImg);
         }
 
-        if(props.content) {
+        if(props.item) {
+            var content = "<h3>Do odebrania: " + props.item;
+            if(props.comment) {
+                content += "</h3><h6>" + props.comment + "</h6>";
+            }
+
             var infoWindow = new google.maps.InfoWindow({
-            content: props.content
-            });
+                content: content
+                });
 
             marker.addListener('click', function(){
-            infoWindow.open(map, marker);
-            });
+                infoWindow.open(map, marker);
+                });
         }
 
         // przybliża mapę gdy znacznik zostanie kliknięty
@@ -127,18 +143,31 @@ function initMap() {
 
         var props = {
             coords: place.geometry.location,
-            content: "<h3>Do odebrania: " + item + "</h3><h6>" + comment + "</h6>"
+            item: item,
+            comment: comment,
         }
-
+        
         addMarker(props);
+
+        var lat = place.geometry.location.lat();
+        var lng = place.geometry.location.lng();
 
         map.setZoom(17);
         map.setCenter(place.geometry.location);
-        
+
+        $.ajax({
+            type: "POST",
+            url: "mapa/upload-markers.php",
+            data: {
+                    item: item,
+                    comment: comment,
+                    lat: lat,
+                    lng: lng
+                }
+        });
     }
 
 }
-
 
 
 // podczas wcisnięcia klawisza enter na pasku wyszukiwania, wybierze pierwszy wynik

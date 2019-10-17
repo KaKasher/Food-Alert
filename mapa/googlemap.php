@@ -1,29 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Food Alert</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="mainStyle.css" rel="stylesheet" />
-        <link href="../navbar/NavbarMainStyle.css" rel="stylesheet" />
-        <link href="../navbar/NavbarMainStyleAButton.css" rel="stylesheet" />
-    </head>
-    <body>
-            
+<?php
+require_once "../login/connect.php";
 
-        <div id="map"></div>
+// Create database connection 
+$conn = new mysqli($host, $db_user, $db_password, $db_name);
 
-        
+$result = mysqli_query($conn, "SELECT * FROM markers");
 
+$data = array();
+while ($row = mysqli_fetch_object($result))
+{
+    array_push($data, $row);
+}
 
+echo json_encode($data);
+exit();
 
-
-
-
-
-        <script src="map.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFOAkwJSGb774hBD0EWai5BCKcQvdqXAU&callback=initMap"
-        async defer></script>
-    </body>
-</html>
+?>
