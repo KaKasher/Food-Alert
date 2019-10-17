@@ -29,7 +29,7 @@
  }
  
 
-/*----------------------------------------------------------------------------Przycisk do dodawania--------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------Przycisk dodawania jedzenia--------------------------------------------------------------------------*/
 
  .btn-default {
   margin-top: 1%;
@@ -65,9 +65,83 @@
   margin-right: 1%;
   
 }
+
+/*----------------------------------------------------------------------------Przycisk usuwania znaczników------------------------------------------------------------------------------------*/
+
+.btn-light {
+  margin-top: 1%;
+  margin-left: 1%;
+  float: left;
+  position: relative;
+  z-index: 99 !important;
+  color: white;
+  padding: 5 35;
+  font-size: 20px;
+  background: rgb(192, 121, 14);
+  border: 0;
+}
+
+.btn-light:hover {
+  background: rgb(206, 130, 17);
+  color: white;
+}
+
+.btn-light:active
+{
+  color: white;
+  border: 0;
+  background-color: rgb(180, 114, 16);
+}
+
+.add i {
+  margin-right: 8px;
+}
+
+.modal.left .modal-dialog {
+	position: fixed;
+	margin: auto;
+  width: 300px;
+  margin-top: 75px;
+	height: 85%;
+	-webkit-transform: translate3d(0%, 0, 0);
+	-ms-transform: translate3d(0%, 0, 0);
+	-o-transform: translate3d(0%, 0, 0);
+	transform: translate3d(0%, 0, 0);
+}
+
+#znaczniki .modal-content {
+  border-radius: 0;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.modal.left .modal-content {
+	height: 100%;
+	overflow-y: auto;
+}
+
+.modal.left .modal-body {
+	padding: 15px 15px 80px;
+}
+
+.modal.left.fade .modal-dialog {
+	left: -320px;
+	-webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+	-moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+	-o-transition: opacity 0.3s linear, left 0.3s ease-out;
+	transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.left.fade.show .modal-dialog {
+	left: 0;
+}
+
+
+
+
 /*----------------------------------------------------------------------------Edycja samego okienka--------------------------------------------------------------------------*/
 
-.modal {
+#popup {
   position:fixed; 
   left:0;
   right:0;
@@ -75,8 +149,6 @@
   bottom:0;
   margin:auto;
 }
-
-
 
 
 .modal-content {
