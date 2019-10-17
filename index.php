@@ -35,7 +35,7 @@
                         </li>	
                         <li class="nav-item">
                             <a class="nav-link" href="../kontakt/Kontakt.php">Kontakt</a>
-                        </li>		
+                        </li>
 			            <li class="nav-item">
                             <input class="form-control"  id="nav-search" type="text" placeholder="Wyszukaj"></i>
                         </li>

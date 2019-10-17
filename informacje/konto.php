@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     session_start();
 ?>
 
@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="../NavbarMainStyle.css"  type="text/css"/>
         <link rel="stylesheet" href="../NavbarMainStyleAButton.css"  type="text/css"/>
-        <link rel="stylesheet" type="text/css" href="KontaktStyle.css">
+        <link rel="stylesheet" type="text/css" href="KontoStyle.css">
         <title>Food Alert</title>
     </head>
 
@@ -46,56 +46,24 @@
 
         <main>
             <div class="glowny">
-                <h1>Kontakt</h1>
+                <h1>Konto</h1>
                     <div class="kontener">
                         <div class="content">
-                                <div class="row">
-                                <div class="col-md-4"> <i class="fas fa-user fa-6x"> </i>
-                                <p>
-                                Project Manager<br>
-                                Kacper Gregorowicz<br>
-                                E-mail:<br> k.gregorowicz@gmail.com
-                                </p>
-                                </div> 
-                                <div class="col-md-4"><i class="fas fa-user fa-6x"></i>
-                                <p>
-                                Front-end developer<br>
-                                Oskar Michta<br>
-                                E-mail:<br> 
-                                michtabiznes@gmail.com
-                                </p>
-                                </div> 
-                                <div class="col-md-4"><i class="fas fa-user fa-6x"></i>
-                                <p>
-                                Web Designer/Front-end developer<br>
-                                Jakub Wojdak<br>
-                                E-mail: <br>
-                                jakub.wojdak11@gmail.com
-                                </p>
-                                </div>
-                            </div>
+                            <h3>Witaj 'we to podmień na nick @Dawid Sroka'</h3>
+                            <h6>Aktualny E-mail:</h6>
+                            <p><i class="fas fa-envelope"></i>Tutaj bedzie z bazy e-mail</p>
+                            <a class="btn btn-primary" href="#" role="button">Zmień E-mail</a>
 
-                                    <div class="row">
-                                <div class="col-md-4 offset-md-2"><i class="fas fa-user fa-6x"></i>
-                                    <p>
-                                    Technology Consultant<br>
-                                    Eliasz Nalepka<br>
-                                    E-mail:<br> 
-                                    godlike.capybara@gmail.com
-                                </p>
-                                </div> 
-                                
-                                <div class="col-md-4"><i class="fas fa-user fa-6x"></i>
-                                    <p>
-                                    Back-end developer<br>
-                                    Dawid Sroka<br>
-                                    E-mail:<br> 
-                                    dawidfirm1@gmail.com
-                                </p>
-                                </div> 
-                            </div>
+
+                            <h6>Zapomniałeś hasła?</h6>
+                            <p>Kliknij w przycisk poniżej</p>
+                            <a class="btn btn-primary" href="#" role="button">Zmień hasło</a>
+
+
+                            <h6>Usunięcie konta</h6>
+                            <a class="btn btn-secondary " href="#" role="button">Usuń konto</a>
+                        </div>
                     </div>
-                </div>
             </div>   
     
     
