@@ -2,12 +2,14 @@
     background-color: rgba(0,0,0,0.4);
     margin: 20px  0 0;
     height: 89%;
+    width: 100%;
     display: table;
 }
 
 .kontener {
     background-color: rgba(0,0,0,0.6);
-    margin: 0 15px 15px 15px;
+    margin: 0 2% 1% 2%;
+    width: 96%;
     height: 77%;
     color: white;
     font-size: 22px;
