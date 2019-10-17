@@ -1,3 +1,38 @@
+body {
+    background-image: url("../1.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.glowny {
+    background-color: rgba(0,0,0,0.4);
+    margin: 20px  0 0;
+    height: 89%;
+    width: 100%;
+    display: table;
+    text-align: center;
+}
+
+.kontener {
+    background-color: rgba(0,0,0,0.6);
+    margin: 0 2% 1% 2%;
+    width: 96%;
+    height: 77%;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    padding: 10 10 0 10;
+    display: table;
+}
+
+h1 {
+	color: white;
+	text-align: center;
+	font-size: 55px;
+}
+
 .col-md-4 {   
     text-align: center;
 	display:grid;
@@ -16,32 +51,3 @@ i {
 	color: rgb(175, 175, 175);
 	
 }
-
-h1 {
-	color: white;
-	text-align: center;
-	font-size: 60px;
-}
-
-
-.container-fluid {
-	margin-top: 20px;
-	background-color: rgba(0, 0, 0, 0.4);
-	
-}
-
-.glowny {
-	background-color: rgba(0, 0, 0, 0.4);
-	
-}
-
-body {
-	background-image: url("../1.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-
-
