@@ -151,6 +151,7 @@ function initMap() {
 
         var lat = place.geometry.location.lat();
         var lng = place.geometry.location.lng();
+        var address = place.name;
 
         map.setZoom(17);
         map.setCenter(place.geometry.location);
@@ -162,7 +163,8 @@ function initMap() {
                     item: item,
                     comment: comment,
                     lat: lat,
-                    lng: lng
+                    lng: lng,
+                    address: address
                 }
         });
     }
