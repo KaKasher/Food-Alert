@@ -98,12 +98,27 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        I tutaj będą te znaczniki
+                        <div class="marker">
+                            <span class="textwZnacznikach"><i class="fas fa-map-marker-alt"></i>Brzesko Cicha 10</span>
+                            <br>
+                            <button type="submit" class="btn btn-danger">Usuń</button>
+                        </div>
+
+                        <div class="marker">
+                            <span class="textwZnacznikach"><i class="fas fa-map-marker-alt"></i>Brzesko Cicha 10</span>
+                            <br>
+                            <button type="submit" class="btn btn-danger">Usuń</button>
+                        </div>
+
+                        <div class="marker">
+                            <span class="textwZnacznikach"><i class="fas fa-map-marker-alt"></i>Brzesko Cicha 10</span>
+                            <br>
+                            <button type="submit" class="btn btn-danger">Usuń</button>
+                        </div>
+
+
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button>
-                        <button type="button" class="btn btn-default" type="submit">Zapisz</button>
-                    </div>
+                
                     </div>
                 </div>
                 </div>
