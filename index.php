@@ -5,6 +5,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" /> 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="NavbarMainStyle.css"  type="text/css"/>
         <link rel="stylesheet" href="NavbarMainStyleAButton.css"  type="text/css"/>
@@ -15,7 +16,7 @@
     <body>
         <header>
             <nav class="navbar fixed-top navbar-dark navbar-expand-md">
-                <a class="navbar-brand" href="strona-glowna">Food Alert</a>
+                <a class="navbar-brand" href="">Food Alert</a>
                 <button class="navbar-toggler animated-button-js" type="button" data-toggle="collapse" data-target="#menu">
                     <div class="animated-button"><span></span><span></span><span></span><span></span></div>
                 </button>
@@ -36,6 +37,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../kontakt/Kontakt.php">Kontakt</a>
                         </li>
+                        <?php
+                            if(isset($_SESSION['zalogowany'])){echo '<li class="nav-item"><a class="nav-link" href="/informacje/konto.php">Konto</a></li>';}
+                        ?>
+
 			            <li class="nav-item">
                             <input class="form-control"  id="nav-search" type="text" placeholder="Wyszukaj"></i>
                         </li>
@@ -74,15 +79,16 @@
                         </div>
                         <div class="modal-body">
                                 <form class="box" action="#" method="POST">
-                                    <input class="popup-form-control" id="popup-search" type="text" placeholder="Podaj adres" aria-label="Wyszukaj">  
+                                    <input class="popup-form-control" id="popup-search" type="" placeholder="Podaj adres" aria-label="Wyszukaj">  
                                     <input class="Adding" id="popup-item" type="text" name="" placeholder="Co chcesz dodać ?">
                                     <input class="comment" id="popup-comment" type="text" name="" placeholder="Komentarz">
                                     
-                                </form>
+				</form>
+				<div class="modal-footer">
+                        	<button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-default" id="add-marker-btn">Dodaj</button>	
+                        	</div>
                         </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button> <button type="submit" class="btn btn-default" id="add-marker-btn">Dodaj</button>
-                        </div>
+                        
                     </div>
                 </div>
 
@@ -92,31 +98,27 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Znaczniki</h5>
+                        <h5 class="modal-title"> <?php echo $_SESSION['yournick']; ?><br>To są twoje znaczniki:</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div class="marker">
-                            <span class="textwZnacznikach"><i class="fas fa-map-marker-alt"></i>Brzesko Cicha 10</span>
-                            <br>
-                            <button type="submit" class="btn btn-danger">Usuń</button>
+                            <span class="textwZnacznikach">
+				<?php  
+                            require_once "login/connect.php";  
+                            $polaczenie = new mysqli($host,$db_user,$db_password,$db_name);
+                            $nick = $_SESSION['yournick'];
+                            $jedzonko = "SELECT * FROM markers WHERE nick='$nick'";
+                            $jedzonko = $polaczenie->query($jedzonko);
+                            while($jedz = $jedzonko->fetch_array()){
+                                $id=$jedz['id'];
+                                echo "<p>".$jedz['product']."<br><i class='fas fa-map-marker-alt'></i>".$jedz['address']."</p> <a href='https://foodalert.brzesko.edu.pl/mapa/delete_food.php?id=".$id."'> Usuń</a><br><br>";
+                            }
+                            ?> 
+			   </span>
                         </div>
-
-                        <div class="marker">
-                            <span class="textwZnacznikach"><i class="fas fa-map-marker-alt"></i>Brzesko Cicha 10</span>
-                            <br>
-                            <button type="submit" class="btn btn-danger">Usuń</button>
-                        </div>
-
-                        <div class="marker">
-                            <span class="textwZnacznikach"><i class="fas fa-map-marker-alt"></i>Brzesko Cicha 10</span>
-                            <br>
-                            <button type="submit" class="btn btn-danger">Usuń</button>
-                        </div>
-
-
                     </div>
                 
                     </div>
