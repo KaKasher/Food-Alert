@@ -38,7 +38,7 @@
                             <a class="nav-link" href="../kontakt/Kontakt.php">Kontakt</a>
                         </li>
                         <?php
-                            if(isset($_SESSION['zalogowany'])){echo '<li class="nav-item"><a class="nav-link" href="/informacje/konto.php">Konto</a></li>';}
+                            if(isset($_SESSION['zalogowany'])){echo '<li class="nav-item"><a class="nav-link" href="informacje/konto.php">Konto</a></li>';}
                         ?>
 
 			            <li class="nav-item">
