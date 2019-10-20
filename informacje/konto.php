@@ -52,12 +52,12 @@
                             <h3>Witaj 'we to podmień na nick @Dawid Sroka'</h3>
                             <h6>Aktualny E-mail:</h6>
                             <p><i class="fas fa-envelope"></i>Tutaj bedzie z bazy e-mail</p>
-                            <a class="btn btn-primary" href="#" role="button">Zmień E-mail</a>
+                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#email">Zmień E-mail</button>
 
 
                             <h6>Zapomniałeś hasła?</h6>
                             <p>Kliknij w przycisk poniżej</p>
-                            <a class="btn btn-primary" href="#" role="button">Zmień hasło</a>
+                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#haslo">Zmień Hasło</button>
 
 
                             <h6>Usunięcie konta</h6>
@@ -66,6 +66,53 @@
                     </div>
             </div>   
     
+<!------------------------------------------------------------------------------------------------------------------POPUP ZMIANY EMAIL------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <div class="modal fade" id="email" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="email-content">
+                        <div class="modal-header">
+                            <h3>Wprowadź nowy E-mail!</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            
+                        </div>
+                        <div class="modal-body">
+                            <form class="box" action="#" method="POST">
+                                <input type="email" name="email-input" class="email-input" placeholder="Podaj nowy E-mail">
+                            </form>
+				<div class="modal-footer">
+                        	<button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-default" id="zmienEmail">Zapisz</button>	
+                        	</div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+        </div>
+
+<!------------------------------------------------------------------------------------------------------------------POPUP ZMIANY HASŁA------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <div class="modal fade" id="haslo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="haslo-content">
+                        <div class="modal-header">
+                            <h3>Wprowadź nowe hasło!</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            
+                        </div>
+                        <div class="modal-body">
+                            <form class="box" action="#" method="POST">
+                                <input type="password" name="zmianahasla" class="haslo-input" placeholder="Podaj hasło">
+                                <input type="password" name="zmianahasla1" class="haslo-input" placeholder="Powtórz hasło">
+                            </form>
+				<div class="modal-footer">
+                        	<button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-default" id="zmienhaslo">Zapisz</button>	
+                        	</div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+        </div>
+
     
         </main>
 
