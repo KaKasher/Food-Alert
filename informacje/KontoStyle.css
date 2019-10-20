@@ -66,13 +66,21 @@ span {
 .btn-primary:hover {
     color: white;
     text-decoration: none;
-    background: #2ecc71;
+    background: rgb(206, 130, 17);
+}
+
+.btn-primary:focus {
+    color: white;
+    text-decoration: none;
+    background: #A3660B;
+    border: none;
+    outline: none;
 }
 
 .btn-primary:active {
     color: white;
     text-decoration: none;
-    background: #1e9751;
+    background: #A3660B !important;
     border: none;
     outline: none;
 }
@@ -96,10 +104,57 @@ span {
     background: #d9534f;
 }
 
-.btn-secondary:visited{
+.btn-secondary:active{
     color: white;
     text-decoration: none;
-    background: #af3a36;
+    background: #af3a36 !important;
     border: none;
     outline: none;
 }
+
+.btn:focus,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus {
+    outline: none;
+    box-shadow:none;
+}
+
+.email-input {
+    border: 0;
+    background: rgba(255, 255, 255, 1);
+    display: block;
+    margin: 40px auto;
+    text-align: center;
+    padding: 10px 10px;
+    width: 80%;
+    outline: none;
+    color: #000000;
+    border-radius: 24px;
+}
+
+.haslo-input {
+    border: 0;
+    background: rgba(255, 255, 255, 1);
+    display: block;
+    margin: 40px auto;
+    text-align: center;
+    padding: 10px 10px;
+    width: 60%;
+    outline: none;
+    color: #000000;
+    border-radius: 24px;
+}
+
+
+#email, #haslo{
+    position:fixed; 
+    left:0;
+    right:0;
+    top:50%;
+    bottom:0;
+    margin:auto;
+  }
+
+  #email-content, #haslo-content {
+    background: rgba(33, 35, 43, 0.9);
+    
+  }
