@@ -1,8 +1,3 @@
-var script = document.createElement('script');
-script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
-script.type = 'text/javascript';
-document.getElementsByTagName('head')[0].appendChild(script);
-
 
 function initMap() {
 
@@ -17,20 +12,12 @@ function initMap() {
         mapTypeControl: false,
         streetViewControl: false,
         restriction: {
-            latLngBounds: {north: 57.000, south: 45.000, west: 5.500, east: 36.000}
+            latLngBounds: {north: 59.000, south: 43.000, west: 0.000, east: 42.000}
         }
     };
 
     // tworzenie nowej mapy
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-    google.maps.event.addListenerOnce(map, 'zoom_changed', function(){
-        if (history.state != null) {
-            var state = history.state;
-            map.setZoom(state['zoom']);
-        }
-
-    })
 
 
     if (history.state != null) {
@@ -39,15 +26,18 @@ function initMap() {
         var sw = new google.maps.LatLng(state['sw']);
         var ne = new google.maps.LatLng(state['ne']);
 
-
         bounds = new google.maps.LatLngBounds(sw, ne);
-        // console.log(bounds);
 
         map.fitBounds(bounds);
-        
     }
 
-    google.maps.event.addListener(map, 'bounds_changed', function() {
+    google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
+        if (history.state != null) {
+            map.setZoom(history.state['zoom']);
+        }
+      });
+
+    google.maps.event.addListener(map, 'idle', function() {
         var bounds = map.getBounds();
         var zoom = map.getZoom();
         var state = {'sw': {lat: bounds.getSouthWest().lat(), lng: bounds.getSouthWest().lng()}, 'ne': {lat: bounds.getNorthEast().lat(), lng: bounds.getNorthEast().lng()}, 'zoom': zoom};
@@ -149,9 +139,14 @@ function initMap() {
                 content: content
                 });
 
-            marker.addListener('click', function(){
+            marker.addListener('mouseover', function(){
                 infoWindow.open(map, marker);
                 });
+
+            marker.addListener('mouseout', function(){
+                infoWindow.close(map, marker);
+                });
+
         }
 
         // przybliża mapę gdy znacznik zostanie kliknięty
