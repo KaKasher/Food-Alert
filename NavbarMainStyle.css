@@ -30,6 +30,11 @@
  
 
 /*----------------------------------------------------------------------------Przycisk dodawania jedzenia--------------------------------------------------------------------------*/
+.btn:focus,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus {
+    outline: none;
+    box-shadow:none;
+}
 
  .btn-default {
   margin-top: 1%;
