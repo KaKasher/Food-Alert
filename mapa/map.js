@@ -3,6 +3,7 @@ script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
 script.type = 'text/javascript';
 document.getElementsByTagName('head')[0].appendChild(script);
 
+
 function initMap() {
 
     // opcje dla mapy
@@ -22,6 +23,39 @@ function initMap() {
 
     // tworzenie nowej mapy
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    google.maps.event.addListenerOnce(map, 'zoom_changed', function(){
+        if (history.state != null) {
+            var state = history.state;
+            map.setZoom(state['zoom']);
+        }
+
+    })
+
+
+    if (history.state != null) {
+        var state = history.state;
+
+        var sw = new google.maps.LatLng(state['sw']);
+        var ne = new google.maps.LatLng(state['ne']);
+
+
+        bounds = new google.maps.LatLngBounds(sw, ne);
+        // console.log(bounds);
+
+        map.fitBounds(bounds);
+        
+    }
+
+    google.maps.event.addListener(map, 'bounds_changed', function() {
+        var bounds = map.getBounds();
+        var zoom = map.getZoom();
+        var state = {'sw': {lat: bounds.getSouthWest().lat(), lng: bounds.getSouthWest().lng()}, 'ne': {lat: bounds.getNorthEast().lat(), lng: bounds.getNorthEast().lng()}, 'zoom': zoom};
+        var title = '';
+        var url = document.URL;
+        history.replaceState(state, title, url);
+    });
+    
 
     // opcje wyszukiwarki
     var autocompleteOptions = {componentRestrictions: {country: 'pl'}};
@@ -46,7 +80,6 @@ function initMap() {
         map: map,
       });
 
-    
     navAutocomplete.addListener('place_changed', function(){
         searchMarker.setVisible(false);
         var place = navAutocomplete.getPlace();
@@ -65,7 +98,7 @@ function initMap() {
         searchMarker.setPosition(place.geometry.location);
         searchMarker.setVisible(true);
     });
- 
+
 
     // pobranie znaczników z bazy
     var ajax = new XMLHttpRequest();
@@ -91,7 +124,6 @@ function initMap() {
                 addMarker(markers[i]);
             }
         }
-
 
     };
 
@@ -127,7 +159,6 @@ function initMap() {
             map.setZoom(17);
             map.setCenter(marker.getPosition());
         });
-
     }
 
     function addMarkerFromPopup() {
@@ -168,7 +199,6 @@ function initMap() {
                 }
         });
     }
-
 }
 
 
