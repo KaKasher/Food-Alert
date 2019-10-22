@@ -1,3 +1,8 @@
+var script = document.createElement('script');
+script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
+script.type = 'text/javascript';
+document.getElementsByTagName('head')[0].appendChild(script);
+
 
 function initMap() {
 
@@ -20,6 +25,7 @@ function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
 
+    // zapisywanie pozycji okna z mapą
     if (history.state != null) {
         var state = history.state;
 
@@ -47,32 +53,34 @@ function initMap() {
     });
     
 
-    // opcje wyszukiwarki
-    var autocompleteOptions = {componentRestrictions: {country: 'pl'}};
-
     // tworzenie wyszukiwarki na pasku nawigacyjnym
     var navInput = document.getElementById('nav-search');
-    var navAutocomplete = new google.maps.places.Autocomplete(navInput, autocompleteOptions);
-    enableEnterKey(navInput);
+    var navAutocomplete = new google.maps.places.SearchBox(navInput);
+
 
     // tworzenie wyszukiwarki pod guzikiem 'dodaj'
     var popupInput = document.getElementById('popup-search');
-    var popupAutocomplete = new google.maps.places.Autocomplete(popupInput, autocompleteOptions);
-    enableEnterKey(popupInput);
+    var popupAutocomplete = new google.maps.places.SearchBox(popupInput);
 
+    // nasłuchiwanie guzika 'dodaj'
     document.getElementById('add-marker-btn').addEventListener("click", addMarkerFromPopup, false);
 
     // sprawia że propozycje wyszukiwania odpowiadają aktualnemu widokowi na mapie
-    navAutocomplete.bindTo('bounds', map);
+    map.addListener('bounds_changed', function() {
+        navAutocomplete.setBounds(map.getBounds());
+        popupAutocomplete.setBounds(map.getBounds());
+      });
 
     // tworzenie znacznika który pokaże się po wyszukaniu
     var searchMarker = new google.maps.Marker({
         map: map,
       });
 
-    navAutocomplete.addListener('place_changed', function(){
-        searchMarker.setVisible(false);
-        var place = navAutocomplete.getPlace();
+
+    // wyszukiwanie poprzez wyszukiwarke na pasku
+    navAutocomplete.addListener('places_changed', function(){
+        var place = navAutocomplete.getPlaces()[0];
+
         if (!place.geometry) {
             window.alert("Nic nie znaleziono dla wejścia: '" + place.name + "'");
             return;
@@ -84,9 +92,6 @@ function initMap() {
             map.setZoom(17);
             map.setCenter(place.geometry.location);
         }
-
-        searchMarker.setPosition(place.geometry.location);
-        searchMarker.setVisible(true);
     });
 
 
@@ -117,7 +122,6 @@ function initMap() {
 
     };
 
-
     function addMarker(props) {
 
         var marker = new google.maps.Marker({
@@ -143,6 +147,10 @@ function initMap() {
                 infoWindow.open(map, marker);
                 });
 
+            marker.addListener('click', function(){
+                infoWindow.open(map, marker);
+                });
+
             marker.addListener('mouseout', function(){
                 infoWindow.close(map, marker);
                 });
@@ -157,7 +165,7 @@ function initMap() {
     }
 
     function addMarkerFromPopup() {
-        var place = popupAutocomplete.getPlace();
+        var place = popupAutocomplete.getPlaces()[0];
 
         if (!place.geometry) {
             window.alert("Nic nie znaleziono dla wejścia: '" + place.name + "'");
@@ -195,29 +203,3 @@ function initMap() {
         });
     }
 }
-
-
-// podczas wcisnięcia klawisza enter na pasku wyszukiwania, wybierze pierwszy wynik
-function enableEnterKey(input) {
-
-    const _addEventListener = input.addEventListener
-
-    const addEventListenerWrapper = (type, listener) => {
-      if (type === "keydown") {
-        const _listener = listener
-        listener = (event) => {
-          const suggestionSelected = document.getElementsByClassName('pac-item-selected').length
-          if (event.key === 'Enter' && !suggestionSelected) {
-            const e = new KeyboardEvent("keydown", { key: "ArrowDown", code: "ArrowDown", keyCode: 40 });
-            e.key = 'ArrowDown'
-            e.code = 'ArrowDown'
-            _listener.apply(input, [e]);
-          }
-          _listener.apply(input, [event]);
-        }
-      }
-      _addEventListener.apply(input, [type, listener]);
-    }
-
-    input.addEventListener = addEventListenerWrapper;
-  }
