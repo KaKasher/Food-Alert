@@ -1,6 +1,6 @@
 
 body {
-    background-image: url("../1.jpg");
+    background-image: url("../Images/Screenshot_2.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -42,6 +42,7 @@ body {
 .content h6 {
     margin-top: 35px;
     font-size: 30px;
+    
 }
 
 i {
@@ -53,8 +54,7 @@ span {
 }
 
 .btn-primary {
-    padding-right: 20px;
-    padding-left: 20px;
+    width: 150px;
     border-radius: 24px;
     transition: 0.25s;
     border: 0;
@@ -86,8 +86,7 @@ span {
 }
 
 .btn-secondary {
-    padding-right: 20px;
-    padding-left: 20px;
+    width: 150px;
     color: white;
     border-radius: 24px;
     transition: 0.25s;
@@ -145,7 +144,7 @@ span {
 }
 
 
-#email, #haslo{
+#email, #haslo, #usun{
     position:fixed; 
     left:0;
     right:0;
@@ -154,7 +153,7 @@ span {
     margin:auto;
   }
 
-  #email-content, #haslo-content {
+  #email-content, #haslo-content, #usuwanie-content {
     background: rgba(33, 35, 43, 0.9);
     
   }
