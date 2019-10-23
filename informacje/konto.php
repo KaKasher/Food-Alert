@@ -1,12 +1,18 @@
 <?php
     session_start();
+
+    if((!isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany'] == false))
+    {
+    header('Location:../index.php');
+    exit();
+    }
 ?>
 
 <html>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+        <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="../NavbarMainStyle.css"  type="text/css"/>
         <link rel="stylesheet" href="../NavbarMainStyleAButton.css"  type="text/css"/>
@@ -17,7 +23,7 @@
     <body>
         <header>
             <nav class="navbar navbar-dark navbar-expand-md">
-                <a class="navbar-brand" href="../strona-glowna">Food Alert</a>
+                <a class="navbar-brand" href="../">Food Alert</a>
                 <button class="navbar-toggler animated-button-js" type="button" data-toggle="collapse" data-target="#menu">
                     <div class="animated-button"><span></span><span></span><span></span><span></span></div>
                 </button>
@@ -37,7 +43,10 @@
                         </li>	
                         <li class="nav-item">
                             <a class="nav-link" href="../kontakt/Kontakt.php">Kontakt</a>
-                        </li>		
+                        </li>
+			<?php
+                            if(isset($_SESSION['zalogowany'])){echo '<li class="nav-item"><a class="nav-link" href="konto.php">Konto</a></li>';}
+                        ?>
                     </ul>
 
                 </div>
@@ -50,25 +59,24 @@
                 <h1>Konto</h1>
                     <div class="kontener">
                         <div class="content">
-                            <h3>Witaj 'we to podmień na nick @Dawid Sroka'</h3>
-                            <h6>Aktualny E-mail:</h6>
-                            <p><i class="fas fa-envelope"></i>Tutaj bedzie z bazy e-mail</p>
+                            <h3>Witaj <?php echo $_SESSION['yournick']; ?>!</h3>
+                            <h6><i class="fas fa-envelope"></i>Aktualny E-mail:</h6>
+                            <p> <?php echo $_SESSION['emailzbazy']; ?></p>
                             <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#email">Zmień E-mail</button>
 
 
-                            <h6>Zapomniałeś hasła?</h6>
+                            <h6><i class="fas fa-lock"></i>Zapomniałeś hasła?</h6>
                             <p>Kliknij w przycisk poniżej</p>
                             <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#haslo">Zmień Hasło</button>
 
 
-                            <h6>Usunięcie konta</h6>
-                            <a class="btn btn-secondary " href="#" role="button">Usuń konto</a>
+                            <h6><i class="fas fa-user-minus"></i>Usunięcie konta</h6>
+                            <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#usun">Usuń konto</button>
                         </div>
                     </div>
             </div>   
-    
-<!------------------------------------------------------------------------------------------------------------------POPUP ZMIANY EMAIL------------------------------------------------------------------------------------------------------------------------------------------------------->
-            <div class="modal fade" id="email" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <!------------------------------------------------------------------------------------------------------------------POPUP ZMIANY EMAIL------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div class="modal fade" id="email" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content" id="email-content">
                         <div class="modal-header">
@@ -77,12 +85,20 @@
                             
                         </div>
                         <div class="modal-body">
-                            <form class="box" action="#" method="POST">
+                            <form class="box" action="changeemail.php" method="POST">
                                 <input type="email" name="email-input" class="email-input" placeholder="Podaj nowy E-mail">
-                            </form>
-				<div class="modal-footer">
-                        	<button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-default" id="zmienEmail">Zapisz</button>	
-                        	</div>
+                                <button type="submit" class="btn btn-primary" id="zmienEmail">Zapisz</button>
+			    <?php 
+                                
+                                if(isset($_SESSION['emi'])){
+                                echo $_SESSION['emi'];
+                                unset($_SESSION['emi']);}
+                                if(isset($_SESSION['erno'])){
+                                echo $_SESSION['erno'];
+                                unset($_SESSION['erno']);}
+                                
+                                ?>
+			    </form>
                         </div>
                         
                     </div>
@@ -100,21 +116,42 @@
                             
                         </div>
                         <div class="modal-body">
-                            <form class="box" action="#" method="POST">
+                            <form class="box" action="changepassword.php" method="POST">
                                 <input type="password" name="zmianahasla" class="haslo-input" placeholder="Podaj hasło">
                                 <input type="password" name="zmianahasla1" class="haslo-input" placeholder="Powtórz hasło">
-                            </form>
-				<div class="modal-footer">
-                        	<button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-default" id="zmienhaslo">Zapisz</button>	
-                        	</div>
+                                <button type="submit" class="btn btn-primary" id="zmienhaslo">Zapisz</button>
+			       <?php
+                                if(isset($_SESSION['blad3'])){
+                                echo $_SESSION['blad3'];
+                                unset($_SESSION['blad3']);}
+                                ?>
+			    </form>	
+                        	
                         </div>
                         
                     </div>
                 </div>
 
         </div>
+    <!------------------------------------------------------------------------------------------------------------------POPUP USUWANIA KONTA------------------------------------------------------------------------------------------------------------------------------------------------------->
+              <div class="modal fade" id="usun" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="usuwanie-content">
+                        <div class="modal-header">
+                            <h3>Jesteś tego pewien ?</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            
+                        </div>
+                        <div class="modal-body">
+                         <a class="btn btn-secondary " href="delete.php" role="button">Usuń konto</a>
+			    </form>	
+                        	
+                        </div>
+                        
+                    </div>
+                </div>
 
-    
+        </div>
         </main>
 
         <script src="https://kit.fontawesome.com/7dbd9042fb.js" crossorigin="anonymous"></script>

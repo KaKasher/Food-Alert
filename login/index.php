@@ -12,7 +12,8 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="shortcut icon" href="../favicon.ico?v=<?php echo time() ?>" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css"  type="text/css"/>
         <title>FoodAlert - Logowanie</title>
     </head>
@@ -20,7 +21,7 @@
     <body>
         <header>
             <nav class="navbar fixed-top navbar-dark navbar-expand-md">
-                <a class="navbar-brand mx-auto" href="../strona-glowna">Food Alert</a>
+                <a class="navbar-brand mx-auto" href="../">Food Alert</a>
             </nav>
         </header>
 
@@ -30,10 +31,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             <form class="box" action="zaloguj.php" method="post">
-                                <input type="text" name="nick" placeholder="Nick">
+                                <input type="text" name="nick" placeholder="Nazwa użytkownika/E-mail">
                                 <input type="password" name="haslo" placeholder="Hasło">
                                 <input type="submit" name="" value="Zaloguj">
-                                <a href="rejestacja">Zarejestruj się</a><br>
+                                <a href="register.php">Zarejestruj się</a><br>
                                 <?php
                                 
                                 if(isset($_SESSION['blad'])){
@@ -45,6 +46,7 @@
                                 unset($_SESSION['zleznakilog']);}  
 
                                 ?>
+				                <a href="restor/email.php" class="zmiana-hasla"><br>Zresetuj swoje hasło</a>
                             </form>                        
                         </div>
                     </div>      
