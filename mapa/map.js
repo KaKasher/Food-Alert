@@ -89,6 +89,15 @@ function initMap() {
         }
     });
 
+    var fridgeMarker = {
+        coords: {lat: 49.967788, lng: 20.606347},
+        item: "Lodówka z żywnością",
+        comment: "Rynek w Brzesku",
+        iconImg: "../Images/fridge.png"
+    }
+
+    addMarker(fridgeMarker);
+
 
     // pobranie znaczników z bazy
     var ajax = new XMLHttpRequest();
