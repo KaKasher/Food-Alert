@@ -78,15 +78,21 @@
                             
                         </div>
                         <div class="modal-body">
-                                <form class="box" action="#" method="POST">
-                                    <input class="popup-form-control" id="popup-search" type="" placeholder="Podaj adres" aria-label="Wyszukaj">  
-                                    <input class="Adding" id="popup-item" type="text" name="" placeholder="Co chcesz dodać ?">
+                                <form class="box needs-validation" id="popup-form" name="form" novalidate>
+                                    <input class="popup-form-control form-control" id="popup-search" name="fname1" type="text" placeholder="Podaj adres" aria-label="Wyszukaj" required>
+                                    <div class="invalid-feedback" data-container="modal-body" data-placement="left">
+                                        Proszę podaj właściwy adres.
+                                    </div>  
+                                    <input class="Adding form-control" id="popup-item" type="text" name="" placeholder="Co chcesz dodać ?" required>
+                                    <div class="invalid-feedback" data-container="modal-body" data-placement="left">
+                                        Proszę podaj produkt.
+                                    </div> 
                                     <input class="comment" id="popup-comment" type="text" name="" placeholder="Komentarz">
-                                    
-				</form>
-				<div class="modal-footer">
-                        	<button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-default" id="add-marker-btn">Dodaj</button>	
-                        	</div>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button>
+                                    <button type="button" class="btn btn-default" id="add-marker-btn">Dodaj</button>
+				                </form>
+					
+                        	
                         </div>
                         
                     </div>
@@ -125,12 +131,11 @@
                 </div>
                 </div>
 <!------------------------------------------------------------------------------------------------------------------SKRYPTY------------------------------------------------------------------------------------------------------------------------------------------------------->
-
         <script src="mapa/map.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&language=pl&region=PL&callback=initMap"
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFOAkwJSGb774hBD0EWai5BCKcQvdqXAU&libraries=places&language=pl&region=PL&callback=initMap"
         async defer></script>
         <script src="https://kit.fontawesome.com/7dbd9042fb.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="jquery-3.4.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="Button.js"></script>
