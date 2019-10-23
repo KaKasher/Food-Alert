@@ -303,3 +303,7 @@
   height: 10px;
   background: black;
 }
+
+.invalid-feedback {
+  z-index: 1600 !important;
+}

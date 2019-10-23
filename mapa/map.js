@@ -1,8 +1,3 @@
-var script = document.createElement('script');
-script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
-script.type = 'text/javascript';
-document.getElementsByTagName('head')[0].appendChild(script);
-
 
 function initMap() {
 
@@ -63,7 +58,7 @@ function initMap() {
     var popupAutocomplete = new google.maps.places.SearchBox(popupInput);
 
     // nasłuchiwanie guzika 'dodaj'
-    document.getElementById('add-marker-btn').addEventListener("click", addMarkerFromPopup, false);
+    document.getElementById('add-marker-btn').addEventListener("click", validateForm, false);
 
     // sprawia że propozycje wyszukiwania odpowiadają aktualnemu widokowi na mapie
     map.addListener('bounds_changed', function() {
@@ -201,5 +196,67 @@ function initMap() {
                     address: address
                 }
         });
+
+        location.reload();
+    }
+
+    // sprawdza czy dane w popupie są poprawne
+    function validateForm() {
+        var form = document.getElementsByClassName('needs-validation')[0];
+        var popupSearch = document.getElementById("popup-search");
+        var popupItem = document.getElementById("popup-item");
+        var popupComment = document.getElementById("popup-comment");
+
+        // sprawdza wyszukiwarke adresu
+        if (popupAutocomplete.getPlaces() == null) {
+            popupSearch.classList.remove('is-valid');
+            popupSearch.classList.add('is-invalid');
+        } 
+        else if (popupAutocomplete.getPlaces() != null) {
+            popupSearch.classList.remove('is-invalid');
+            popupSearch.classList.add('is-valid');
+        }
+
+        // sprawdza przedmiot
+        if (popupItem.checkValidity() === false || checkText("popup-item") == false) {
+            popupItem.classList.remove('is-valid');
+            popupItem.classList.add('is-invalid');
+        } 
+        else if (popupItem.checkValidity() === true) {
+            popupItem.classList.remove('is-invalid');
+            popupItem.classList.add('is-valid');
+        }
+
+        // sprawdza komentarz
+        if (popupComment.checkValidity() === false || checkText("popup-comment") == false) {
+            popupComment.classList.remove('is-valid');
+            popupComment.classList.add('is-invalid');
+        } 
+        else if (popupComment.checkValidity() === true) {
+            popupComment.classList.remove('is-invalid');
+            popupComment.classList.add('is-valid');
+        }
+
+        // gdy wszystko jest poprawne dodaje znacznik i zamyka popup
+        if (form.checkValidity() === true && checkText("popup-item") === true && checkText("popup-comment") == true) {
+            addMarkerFromPopup();
+
+            $(function () {
+                $('#popup').modal('hide');
+             });
+        }
+        
+        // sprawdza znaki w danym polu
+        function checkText(id) {
+            var text = document.getElementById(id).value;
+            var regex = /[<>#]/;
+            var found = text.match(regex);
+
+            if (found != null) {
+                return false;
+            }
+
+            return true;
+        }
     }
 }
