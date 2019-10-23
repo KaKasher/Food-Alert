@@ -10,18 +10,18 @@
   else{
     $nick = $_POST['nick'];
     $haslo = $_POST['haslo'];
-    $hash = "SELECT*FROM logowanie WHERE nick='$nick'";
+    $hash = "SELECT*FROM logowanie WHERE nick='$nick' OR email='$nick'";
     $hash = $polaczenie->query($hash);
     $hash = $hash->fetch_assoc();  
     $hash = $hash['haslo'];
     if(password_verify($haslo, $hash)){
 
-    $sql = "SELECT*FROM logowanie WHERE nick='$nick'";
+    $sql = "SELECT*FROM logowanie WHERE nick='$nick' OR email='$nick'";
 
     if($rezultat = $polaczenie->query($sql)){
       $ilu_userow = $rezultat->num_rows;
       if($ilu_userow>0){
-        $sql1 = "SELECT * FROM logowanie WHERE nick='$nick' AND mailconfimed='$value'";
+        $sql1 = "SELECT * FROM logowanie WHERE (nick='$nick' OR email='$nick') AND mailconfimed='$value'";
         $sql1 = $polaczenie->query($sql1);
         $sql1 = $sql1->fetch_assoc();
         if($sql1 == 0 ){
@@ -30,7 +30,7 @@
       
         $wiersz= $rezultat->fetch_assoc();
         $_SESSION['yournick'] = $wiersz['nick'];
-        
+        $_SESSION['emailzbazy'] = $wiersz['email'];
         
         unset($_SESSION['blad']);
         $rezultat->free_result();
@@ -42,7 +42,6 @@
       
 	}
     }}else{
-      if(ctype_alnum($nick) == false){$_SESSION['zleznakilog'] = '<span style="color:red">Możesz używać tylko liczb i liter! </span>'; header('Location: index.php'); exit;}
       $_SESSION['blad'] = '<span style="color:red">login or password incorrect </span>';
       header('Location: index.php');
     }

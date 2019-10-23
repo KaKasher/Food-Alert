@@ -12,7 +12,8 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="shortcut icon" href="../favicon.ico?v=<?php echo time() ?>" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css"  type="text/css"/>
         <title>FoodAlert - Rejestracja</title>
     </head>
@@ -20,7 +21,7 @@
     <body>
         <header>
             <nav class="navbar fixed-top navbar-dark navbar-expand-md">
-                <a class="navbar-brand mx-auto" href="../strona-glowna">Food Alert</a>
+                <a class="navbar-brand mx-auto" href="../">Food Alert</a>
             </nav>
         </header>
 
@@ -35,7 +36,7 @@
                                 echo $_SESSION['lg'];
                                 unset($_SESSION['lg']);
                                 ?>
-                                <input type="text" name="login1" placeholder="Nick" maxlength="25">
+                                <input type="text" name="login1" placeholder="Nazwa użytkownika" maxlength="25">
                                 <input type="password" name="haslo" placeholder="Hasło" minlength="5">
                                 <?php
                                 if(isset($_SESSION['bl']))
@@ -60,7 +61,7 @@
                                 echo $_SESSION['zleznaki'];
                                 unset($_SESSION['zleznaki']);}
                                 ?>
-                                <a href="restor/email.php">zrestartuj swoje haslo</a>
+                                
                             </form>    
                                                 
                         </div>

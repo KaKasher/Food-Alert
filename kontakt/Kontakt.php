@@ -5,7 +5,8 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="../NavbarMainStyle.css"  type="text/css"/>
         <link rel="stylesheet" href="../NavbarMainStyleAButton.css"  type="text/css"/>
@@ -16,7 +17,7 @@
     <body>
         <header>
             <nav class="navbar navbar-dark navbar-expand-md">
-                <a class="navbar-brand" href="../strona-glowna">Food Alert</a>
+                <a class="navbar-brand" href="../">Food Alert</a>
                 <button class="navbar-toggler animated-button-js" type="button" data-toggle="collapse" data-target="#menu">
                     <div class="animated-button"><span></span><span></span><span></span><span></span></div>
                 </button>
@@ -37,6 +38,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../kontakt/Kontakt.php">Kontakt</a>
                         </li>		
+                        <?php
+                            if(isset($_SESSION['zalogowany'])){echo '<li class="nav-item"><a class="nav-link" href="/informacje/konto.php">Konto</a></li>';}
+                        ?>
+
                     </ul>
 
                 </div>
@@ -50,14 +55,14 @@
                     <div class="kontener">
                         <div class="content">
                                 <div class="row">
-                                <div class="col-md-4"> <i class="fas fa-user fa-6x"> </i>
+                                <div class="col-md-4 foto"> <img src="https://i.imgur.com/9ZQr08f.png">
                                 <p>
-                                Project Manager<br>
+                                Project Manager/Map developer<br>
                                 Kacper Gregorowicz<br>
-                                E-mail:<br> k.gregorowicz@gmail.com
+                                E-mail:<br> gregorowicz.kacper@gmail.com
                                 </p>
                                 </div> 
-                                <div class="col-md-4"><i class="fas fa-user fa-6x"></i>
+                                <div class="col-md-4 foto"><img src="https://i.imgur.com/bWEdTjw.png%22%3E">
                                 <p>
                                 Front-end developer<br>
                                 Oskar Michta<br>
@@ -65,27 +70,27 @@
                                 michtabiznes@gmail.com
                                 </p>
                                 </div> 
-                                <div class="col-md-4"><i class="fas fa-user fa-6x"></i>
+                                <div class="col-md-4 foto"><img src="https://i.imgur.com/skLf2jR.jpg">
                                 <p>
                                 Web Designer/Front-end developer<br>
                                 Jakub Wojdak<br>
                                 E-mail: <br>
-                                jakub.wojdak11@gmail.com
+                                jakub.wojdak16@gmail.com
                                 </p>
                                 </div>
                             </div>
 
                                     <div class="row">
-                                <div class="col-md-4 offset-md-2"><i class="fas fa-user fa-6x"></i>
+                                <div class="col-md-4 offset-md-2 foto"><img src="https://i.imgur.com/ypjU0fr.jpg">
                                     <p>
                                     Technology Consultant<br>
                                     Eliasz Nalepka<br>
                                     E-mail:<br> 
-                                    godlike.capybara@gmail.com
+                                    e.nalepka01@gmail.com
                                 </p>
                                 </div> 
                                 
-                                <div class="col-md-4"><i class="fas fa-user fa-6x"></i>
+                                <div class="col-md-4 foto"><img src="https://i.imgur.com/uAStBO5.png">
                                     <p>
                                     Back-end developer<br>
                                     Dawid Sroka<br>

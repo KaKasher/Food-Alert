@@ -117,7 +117,7 @@
                         </div>
                         <div class="modal-body">
                             <form class="box" action="changepassword.php" method="POST">
-                                <input type="password" name="zmianahasla" class="haslo-input" placeholder="Podaj hasło">
+                                <input type="password" name="zmianahasla" class="haslo-input" placeholder="Podaj hasło" minlength="5">
                                 <input type="password" name="zmianahasla1" class="haslo-input" placeholder="Powtórz hasło">
                                 <button type="submit" class="btn btn-primary" id="zmienhaslo">Zapisz</button>
 			       <?php

@@ -87,9 +87,9 @@
                                     <div class="invalid-feedback" data-container="modal-body" data-placement="left">
                                         Proszę podaj produkt.
                                     </div> 
-                                    <input class="comment" id="popup-comment" type="text" name="" placeholder="Komentarz">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button>
+                                    <input class="comment" id="popup-comment" type="text" name="" placeholder="Komentarz"><br><br>
                                     <button type="button" class="btn btn-default" id="add-marker-btn">Dodaj</button>
+                                    <button type="button" class="btn btn-danger" id="zamknij" data-dismiss="modal">Zamknij</button>
 				                </form>
 					
                         	
@@ -139,5 +139,15 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="Button.js"></script>
+        <script type="text/javascript" id="cookieinfo"
+	        src="//cookieinfoscript.com/js/cookieinfo.min.js"
+            data-message="Ta strona używa plików cookies. Kontynuując korzystanie z naszej strony zgadzasz się na przetwarzanie plików cookies."
+            data-bg="rgba(0, 0, 0, 0.8)"
+            data-fg="#ffffff"
+            data-divlinkbg="#c0790e"
+            data-close-text="OK"
+            data-linkmsg=""
+            data-text-align="left">
+        </script>
     </body>
 </html>

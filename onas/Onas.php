@@ -5,7 +5,8 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="../NavbarMainStyle.css"  type="text/css"/>
         <link rel="stylesheet" href="../NavbarMainStyleAButton.css"  type="text/css"/>
@@ -16,7 +17,7 @@
     <body>
         <header>
             <nav class="navbar navbar-dark navbar-expand-md">
-                <a class="navbar-brand" href="../strona-glowna">Food Alert</a>
+                <a class="navbar-brand" href="../">Food Alert</a>
                 <button class="navbar-toggler animated-button-js" type="button" data-toggle="collapse" data-target="#menu">
                     <div class="animated-button"><span></span><span></span><span></span><span></span></div>
                 </button>
@@ -37,6 +38,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../kontakt/Kontakt.php">Kontakt</a>
                         </li>		
+                        <?php
+                            if(isset($_SESSION['zalogowany'])){echo '<li class="nav-item"><a class="nav-link" href="/informacje/konto.php">Konto</a></li>';}
+                        ?>
+
                     </ul>
 
                 </div>
@@ -49,7 +54,12 @@
                 <h1>O Nas</h1>
                     <div class="kontener">
                         <div class="tekst">
-                            Wszystko zaczeło się od pewnego dnia kiedy to dwóch założycieli wracając ze szkoły spotkało menela Mariana poprosił on o pieniądze na alkohol jednak my wiedzieliśmy że tak naprawdę chciał je wydać na jedzenie, niestety nie mieliśmy przy sobie ani grosza. Fakt ten zezłościł pana Mariana do tego stopnia że groził powiadomieniem policji że nie posiadamy pieniędzy. Zaszokowani zaistniałą sytuacją wróciliśmy do domu i zaczęliśmy myśleć nad rozwiązaniem aby już nigdy nie spotkała nas taka sytuacja. Tak o to powstało Food Alert dzięki któremu nawet Pan Marian już nigdy nie będzie głodny.
+                           Już od dłuższego czasu, grupka przyjaciół planowała stworzyć coś wielkiego.
+Znajdując wspólny cel w postaci konkursu, wpadli na pomysł aplikacji, która
+mogłaby nie tylko pozwolić im wygrać lecz także pomóc każdemu kto jest w potrzebie.
+Po wielu nieudanych pomysłach i prototypach powstała aplikacja która w łatwy sposób pozwala
+pomagać potrzebującym. Choć droga była wyboista i nie zawsze przyjemna, po wielu nieprzespanych
+nocach (i złamanej klawiaturze) powstało Food Alert. Pomoc choć jest bezcenna, to nic nie kosztuje.
                         </div>  
                     </div>
             </div>   
