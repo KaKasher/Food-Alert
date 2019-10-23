@@ -52,6 +52,12 @@ header {
     width: 80%;
 }
 
+@media only screen and (max-width: 757px) {
+    .box input[type="text"], .box input[type="password"], .box input[type="email"] {
+       width: 80%;
+    }
+    
+  }
 .box input[type="submit"] {
     border: 0;
     background: #A3660B;
@@ -80,4 +86,8 @@ header {
 h1, h2, h3 {
     text-align: center;
     color: white;
+}
+
+.box .zmiana-hasla {
+    font-size: 19px;
 }
