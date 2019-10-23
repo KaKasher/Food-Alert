@@ -71,7 +71,7 @@
 
 
                             <h6><i class="fas fa-user-minus"></i>Usunięcie konta</h6>
-                            <a class="btn btn-secondary " href="delete.php" role="button">Usuń konto</a>
+                            <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#usun">Usuń konto</button>
                         </div>
                     </div>
             </div>   
@@ -85,12 +85,20 @@
                             
                         </div>
                         <div class="modal-body">
-                            <form class="box" action="#" method="POST">
+                            <form class="box" action="changeemail.php" method="POST">
                                 <input type="email" name="email-input" class="email-input" placeholder="Podaj nowy E-mail">
-                            </form>
-				<div class="modal-footer">
-                        	<button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-default" id="zmienEmail">Zapisz</button>	
-                        	</div>
+                                <button type="submit" class="btn btn-primary" id="zmienEmail">Zapisz</button>
+			    <?php 
+                                
+                                if(isset($_SESSION['emi'])){
+                                echo $_SESSION['emi'];
+                                unset($_SESSION['emi']);}
+                                if(isset($_SESSION['erno'])){
+                                echo $_SESSION['erno'];
+                                unset($_SESSION['erno']);}
+                                
+                                ?>
+			    </form>
                         </div>
                         
                     </div>
@@ -108,20 +116,42 @@
                             
                         </div>
                         <div class="modal-body">
-                            <form class="box" action="#" method="POST">
+                            <form class="box" action="changepassword.php" method="POST">
                                 <input type="password" name="zmianahasla" class="haslo-input" placeholder="Podaj hasło">
                                 <input type="password" name="zmianahasla1" class="haslo-input" placeholder="Powtórz hasło">
-                            </form>
-				<div class="modal-footer">
-                        	<button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-default" id="zmienhaslo">Zapisz</button>	
-                        	</div>
+                                <button type="submit" class="btn btn-primary" id="zmienhaslo">Zapisz</button>
+			       <?php
+                                if(isset($_SESSION['blad3'])){
+                                echo $_SESSION['blad3'];
+                                unset($_SESSION['blad3']);}
+                                ?>
+			    </form>	
+                        	
                         </div>
                         
                     </div>
                 </div>
 
         </div>
-    
+    <!------------------------------------------------------------------------------------------------------------------POPUP USUWANIA KONTA------------------------------------------------------------------------------------------------------------------------------------------------------->
+              <div class="modal fade" id="usun" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="usuwanie-content">
+                        <div class="modal-header">
+                            <h3>Jesteś tego pewien ?</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            
+                        </div>
+                        <div class="modal-body">
+                         <a class="btn btn-secondary " href="delete.php" role="button">Usuń konto</a>
+			    </form>	
+                        	
+                        </div>
+                        
+                    </div>
+                </div>
+
+        </div>
         </main>
 
         <script src="https://kit.fontawesome.com/7dbd9042fb.js" crossorigin="anonymous"></script>
