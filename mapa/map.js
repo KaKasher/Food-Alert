@@ -92,7 +92,7 @@ function initMap() {
 
     // pobranie znaczników z bazy
     var ajax = new XMLHttpRequest();
-    ajax.open("GET", "mapa/googlemap.php", true);
+    ajax.open("GET", "mapa/get-markers.php", true);
     ajax.send();
 
     ajax.onreadystatechange = function() {
