@@ -29,9 +29,9 @@
     $mail->SMTPAuth = true;
     $mail->SMTPSecure = 'tls';
     $mail->isHTML(true);
-    $mail->Username = 'dawidfirm1@gmail.com';
-    $mail->Password = 'DAWIDsroka1';
-    $mail->From='dawidfirm1@gmail.com';
+    $mail->Username = '';
+    $mail->Password = '';
+    $mail->From='';
     $mail->FromName='FoodAlert';
     $mail->addAddress($_POST['email1']);
     $mail->Subject = 'E-Mail restore';
